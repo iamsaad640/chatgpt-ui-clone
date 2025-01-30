@@ -39,7 +39,7 @@ export interface SideBarProps {
 }
 
 export const Sidebar = ({ isResponsive, ...props }: SideBarProps) => {
-  const [isOpen, setIsOpen] = useState(true),
+  const [isOpen, setIsOpen] = useState(false),
     handleOpen = () => setIsOpen(true),
     handleClose = () => setIsOpen(false);
 
@@ -116,7 +116,7 @@ export const Sidebar = ({ isResponsive, ...props }: SideBarProps) => {
       <Stack
         maxWidth={64}
         width="full"
-        height="full"
+        height="100vh"
         padding={2}
         color="white"
         backgroundColor="gray.900"
