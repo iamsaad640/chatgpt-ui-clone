@@ -1,18 +1,19 @@
 //Modules
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 //Components
-import Home from '@/pages/Home';
+import Home from "@/pages/Home";
 
 //Style
-import '@/styles/global.css';
-import { Providers } from './components/Providers';
+import "@/styles/global.css";
+import { Providers } from "./components/Providers";
+import Page from "./pages/Page";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("gpt-nova") as HTMLElement).render(
   <React.StrictMode>
     <Providers>
-      <Home />
+      <Page />
     </Providers>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
