@@ -9,8 +9,10 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  ChakraProvider,
 } from "@chakra-ui/react";
 import Home from "./Home";
+import { theme } from "@/styles/theme";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,40 +26,42 @@ export default function Page() {
   const modalHeight = isFullScreen ? "100vh" : "auto";
 
   return (
-    <Box position="relative">
-      <Button
-        position="fixed"
-        bottom={4}
-        right={4}
-        onClick={openModal}
-        aria-label="Open Chat"
-      >
-        Open Chat
-      </Button>
-      <Modal isOpen={isOpen} onClose={closeModal} size={modalWidth}>
-        <ModalOverlay />
-        <ModalContent height={modalHeight}>
-          <ModalHeader
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            Chat
-            <Button onClick={toggleFullScreen} size="sm">
-              {isFullScreen ? "Exit Full Screen" : "Full Screen"}
-            </Button>
-            <ModalCloseButton position="relative" />
-          </ModalHeader>
-          <ModalBody flex="1" overflowY="auto">
-            <Home />
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={toggleFullScreen}>
-              {isFullScreen ? "Exit Full Screen" : "Full Screen"}
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </Box>
+    <ChakraProvider resetCSS={false} theme={theme} cssVarsRoot="undefined">
+      <Box position="relative">
+        <Button
+          position="fixed"
+          bottom={4}
+          right={4}
+          onClick={openModal}
+          aria-label="Open Chat"
+        >
+          Open Chat
+        </Button>
+        <Modal isOpen={isOpen} onClose={closeModal} size={modalWidth}>
+          <ModalOverlay />
+          <ModalContent height={modalHeight}>
+            <ModalHeader
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              Chat
+              <Button onClick={toggleFullScreen} size="sm">
+                {isFullScreen ? "Exit Full Screen" : "Full Screen"}
+              </Button>
+              <ModalCloseButton position="relative" />
+            </ModalHeader>
+            <ModalBody flex="1" overflowY="auto">
+              <Home />
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={toggleFullScreen}>
+                {isFullScreen ? "Exit Full Screen" : "Full Screen"}
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+    </ChakraProvider>
   );
 }

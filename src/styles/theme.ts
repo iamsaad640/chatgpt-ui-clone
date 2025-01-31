@@ -15,4 +15,7 @@ export const theme = extendTheme({
   components: {
     Button,
   },
+  styles: {
+    global: {},
+  },
 });

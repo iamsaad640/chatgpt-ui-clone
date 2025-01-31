@@ -1,7 +1,4 @@
 //Modules
-import gptAvatar from "@/assets/gpt-avatar.svg";
-import warning from "@/assets/warning.svg";
-import user from "@/assets/user.png";
 import { useRef } from "react";
 import { ChatContent, useChat } from "@/store/chat";
 import { useForm } from "react-hook-form";
@@ -11,7 +8,7 @@ import { useMutation } from "react-query";
 //Components
 import { Input } from "@/components/Input";
 import { FiSend } from "react-icons/fi";
-import { Avatar, IconButton, Spinner, Stack, Text } from "@chakra-ui/react";
+import { IconButton, Spinner, Stack, Text } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { Instructions } from "../Layout/Instructions";
 import { useAPI } from "@/store/api";
@@ -129,17 +126,6 @@ export const Chat = ({ ...props }: ChatProps) => {
         <Stack spacing={2} padding={2} ref={parentRef} height="full">
           {hasSelectedChat ? (
             selectedChat.content.map(({ emitter, message }, key) => {
-              const getAvatar = () => {
-                switch (emitter) {
-                  case "gpt":
-                    return gptAvatar;
-                  case "error":
-                    return warning;
-                  default:
-                    return user;
-                }
-              };
-
               const getMessage = () => {
                 if (message.slice(0, 2) == "\n\n") {
                   return message.slice(2, Infinity);
@@ -159,7 +145,6 @@ export const Chat = ({ ...props }: ChatProps) => {
                   }
                   spacing={4}
                 >
-                  <Avatar name={emitter} src={getAvatar()} />
                   <Text
                     whiteSpace="pre-wrap"
                     marginTop=".75em !important"

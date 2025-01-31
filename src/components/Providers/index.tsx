@@ -7,14 +7,8 @@ import { theme } from "@/styles/theme";
 import { QueryClientProvider } from "react-query";
 import { query } from "@/services/query";
 
-export interface IProvidersProps extends PropsWithChildren { };
+export interface IProvidersProps extends PropsWithChildren {}
 
 export const Providers = ({ children, ...props }: IProvidersProps) => {
-    return (
-        <QueryClientProvider client={query}>
-            <ChakraProvider theme={theme}>
-                {children}
-            </ChakraProvider>
-        </QueryClientProvider>
-    )
+  return <QueryClientProvider client={query}>{children}</QueryClientProvider>;
 };
