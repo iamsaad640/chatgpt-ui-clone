@@ -3,17 +3,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 //Components
-import Home from "@/pages/Home";
 
 //Style
 import "@/styles/global.css";
 import { Providers } from "./components/Providers";
-import Page from "./pages/Page";
+import ChatPopup from "./ChatModel/Chatpopup";
+import Signin from "./Pages/Signin";
+import Home from "./Pages/Home";
 
 ReactDOM.createRoot(document.getElementById("gpt-nova") as HTMLElement).render(
   <React.StrictMode>
     <Providers>
-      <Page />
+      <Home />
     </Providers>
   </React.StrictMode>
 );

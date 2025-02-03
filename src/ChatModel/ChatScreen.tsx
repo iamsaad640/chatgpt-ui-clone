@@ -1,6 +1,6 @@
 //Components
 import { Stack, useMediaQuery } from "@chakra-ui/react";
-import { Sidebar } from "@/components/Sidebar";
+import { ChatSidebar } from "@/components/Sidebar/ChatSidebar";
 import { Chat } from "@/components/Chat";
 
 import { useState, useEffect, useRef } from "react";
@@ -38,7 +38,7 @@ export default function Home() {
       height="full"
       spacing={0}
     >
-      <Sidebar isResponsive={isResponsive} />
+      <ChatSidebar isResponsive={isResponsive} />
       <Chat />
     </Stack>
   );

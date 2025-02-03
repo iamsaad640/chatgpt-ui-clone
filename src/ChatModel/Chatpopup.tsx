@@ -10,9 +10,9 @@ import {
   ModalBody,
   ModalFooter,
 } from "@chakra-ui/react";
-import Home from "./Home";
+import Home from "./ChatScreen";
 
-export default function Page() {
+export default function ChatPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -27,7 +27,7 @@ export default function Page() {
     <Box position="relative">
       <Button
         position="fixed"
-        bottom={4}
+        top={4}
         right={4}
         onClick={openModal}
         aria-label="Open Chat"

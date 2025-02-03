@@ -38,7 +38,7 @@ export interface SideBarProps {
   isResponsive?: boolean;
 }
 
-export const Sidebar = ({ isResponsive, ...props }: SideBarProps) => {
+export const ChatSidebar = ({ isResponsive, ...props }: SideBarProps) => {
   const [isOpen, setIsOpen] = useState(false),
     handleOpen = () => setIsOpen(true),
     handleClose = () => setIsOpen(false);
